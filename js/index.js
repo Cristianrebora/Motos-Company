@@ -1,156 +1,60 @@
-
-
-//let numero= parseInt (prompt ("ingrese numero"))
-//let numero3= parseInt (prompt("ingrese otro numero"))
-
-//console.log = ( numero + numero3)
-
-
-//****************************************CONTROL DE FLUJOS***************************************/
-//let edad = prompt("Cual es su edad");
-//let edadParseada = parseInt(edad);
-
-//if(edadParseada > 18){
-  //  alert("sos mayor, podes beber alcohol.")
-//}else {
-   // alert("no sos mayor")
-//}
-
-
-
-//*****************************segundo ejemplo*****************
-
-
-//if(edad <= 18){
-  // alert("sos menos")
-//}else if(edad <=50){
-  //  alert("sos adulto")
-//}else {
-  //  alert("estas grande para beber")
-//}
-
-//*************************tercer ejemplo************* */
-//let edad = 15;
-
-//let edadEntre20y50 = edad >= 20 && edad <=50;
-
-//console.log(edadEntre20y50);
-
-
-// let grados = 30;
-// let clima = "lluvia";
-
-// if(grados == 30 || clima == "lluvia"){
-//     alert(" me voy a tomar un helado")
-// }else(
-//     alert("Miramos netflix con yoel")
-// )
-
-// let nombre = prompt("Ingrese nombre")
-
-// if(nombre != ""){
-//     alert("su nombre es:" + nombre)
-// }
-
-
-// let nombreIngresado = prompt("ingresar nombre");
-
-// if(nombreIngresado != "" && (nombreIngresado == "EMA" || nombreIngresado == "EMA")) {
-//     alert("hola EMA");
-//     }else{
-//         alert("Error: Ingresar nombre valuido")
-//     }
-
-
-// let numero = prompt("Cantidad unidades");
-// let numeroParseado = parseInt("unidades");
-
-// if ( numeroParseado <= "1000"){
-//   alert("El pedido sera enviado")
-// }else {
-//  alert("El numero supera las mil unidades")
-// }
-
-//***********************FOR**************** */
-
-// let numero = parseInt(prompt("Ingresar numero"));
-
-// for(let i = 0; i<= 10; i++){
-//     let resultado = numero * i
-//     console.log("numero:" + numero + " X " + i + " : "+ resultado)
-// }
-
-
-//*************************WHILE********************* */
-// let numero = parseInt(prompt("Ingresar numero"));
-
-
-// let i = 1;
-
-// while(i <=10){
-//   let resultado = numero * i
-//   console.log(numero + " X " + I + " : " + resultado)
-//   i++;
-// }
-
-
-
-
-
-
-
-// let nombre = prompt("ingrese nombre o SALIR para termiar")
-
-// while( nombre != "SALIR"){
-//   console.log("Usted ingreso: " + nombre)
-// }
-
-// function saludar(usuario){
-//   console.log("Bienvenido de nuevo, " + usuario);
-// }
-//   let usuario = prompt("Ingrese su alias");
-
-//   saludar(usuario);
-
-//   let usuario2 = prompt("Ingrese su alias");
-//   saludar(usuario2)
-
-// function saludar(nombre, apellido){
-//   console.log("Bienvenido de nuevo, " + nombre);
-//   console.log("Su apellido es:, " + apellido);
+const motos = [
+    { modelo: '110cc', marca: 'Yamaha,Crypton', anio: 2019, kilometraje: 5000, color: 'Azul', precio: 250000 },
+    { modelo: '190cc', marca: 'Honda,Cb', anio: 2021, kilometraje: 0 , color: 'Negro', precio: 450000 },
+    { modelo: '1000cc', marca: 'Yamaha,R1', anio: 2019, kilometraje: 15000, color: 'Blanco', precio: 10800000 },
+  ];
   
-// }
-//   let nombre = prompt("Ingrese su alias");
-//   let apellido= prompt("Ingrese su alias");
-
-//   saludar(nombre,usuario);
-
-  // const persona = {
-  //   nombre:"Cristian",
-  //   apellido:"Rebora",
-  //   edad: 30,
-  //   codigoPostal: 1408,
-  //   altura:"190cm"
-  // }
-
-  // persona.altura = 180;
-
-  // console.log(persona);
-
-
-
-// *****************contructor es nuestro plano*********
-// function Persona (nombre,edad,codigoPostal,altura){
-//   this.nombre = nombre;
-//   this.apellido = apellido;
-//   this.edad = edad;
-//   this.codigoPostal = codigoPostal;
-//   this.altura = altura;
-// }
-
-// const persona1 = new Persona("Cristian","Rebora",30,1408,"190cm");
-// const persona2 = new Persona("Pepito","Hernandez",20,1234,"140cm");
-
-// persona1.nombre = "Cristian";
-
-// console.log(persona2.nombre);
+  function mostrarCatalogo() {
+    let catalogo = 'Catálogo de motos:\n\n';
+  
+    for (let index = 0; index < motos.length; index++) {
+      const moto = motos[index];
+      catalogo = catalogo + (index + 1) + '. ' + moto.modelo + ' - ' + moto.marca + ' - ' + moto.anio + ' - ' + moto.kilometraje + ' km - ' + moto.color + ' - $' + moto.precio + '\n';
+    }
+  
+    alert(catalogo);
+  }
+  
+  function comprarMoto() {
+    const seleccion = parseInt(prompt('Ingrese el número de la moto que desea comprar:')) - 1;
+  
+    if (seleccion >= 0 && seleccion < motos.length) {
+      const motoSeleccionado = motos[seleccion];
+  
+      const nombre = prompt('Ingrese su nombre completo:');
+      const direccion = prompt('Ingrese su dirección de entrega:');
+      const tarjetaCredito = prompt('Ingrese el número de su tarjeta de crédito:');
+  
+      const confirmacion = 'Compra realizada exitosamente.\n\n moto: ' + motoSeleccionado.modelo + ' - ' + motoSeleccionado.marca + '\nNombre: ' + nombre + '\nDirección: ' + direccion + '\nTarjeta de crédito: ' + tarjetaCredito;
+  
+      alert(confirmacion);
+    } else {
+      alert('Selección inválida');
+    }
+  }
+  
+  
+  function simuladorCompraMoto() {
+    let opcion = '';
+  
+    do {
+      opcion = prompt('Seleccione una opción:\n\n1. Ver catálogo de motos\n2. Comprar moto\n3. Salir');
+  
+      switch (opcion) {
+        case '1':
+          mostrarCatalogo();
+          break;
+        case '2':
+          comprarMoto();
+          break;
+        case '3':
+          alert('Gracias por utilizar nuestra página oficial');
+          break;
+        default:
+          alert('Opción inválida');
+          break;
+      }
+    } while (opcion !== '3');
+  }
+  
+  simuladorCompraMoto();

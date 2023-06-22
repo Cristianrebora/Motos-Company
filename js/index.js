@@ -8,8 +8,8 @@
     let catalogo = 'Catálogo de motos:\n\n';
 
 // Uso de Map -> Mostrar modelos en mayúsculas 
- const motoMarcaEnMayuscula = motos.map((moto) => {
-  moto.marca = moto.marca.toUpperCase();
+ const motoModeloEnMayuscula = motos.map((moto) => {
+  moto.modelo = moto.modelo.toUpperCase();
   return moto;
  });
   

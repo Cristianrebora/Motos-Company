@@ -13,7 +13,7 @@
   return moto;
  });
   
-    for (let index = 0; index < motos.length; index++) {
+    for (let index = 0; index < motoModeloEnMayuscula.length; index++) {
       const moto = motos[index];
       catalogo = catalogo + (index + 1) + '. ' + moto.modelo + ' - ' + moto.marca + ' - ' + moto.anio + ' - ' + moto.kilometraje + ' km - ' + moto.color + ' - $' + moto.precio + '\n';
    }

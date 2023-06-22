@@ -68,3 +68,4 @@
 // obtener elemento del DOM y capturar su evento click
 var btnIniciarSimulador = document.getElementById("btnIniciarSimulador");
 btnIniciarSimulador.addEventListener("click", simuladorCompraMoto);
+

@@ -1,11 +1,17 @@
  const motos = [
     { modelo: '110cc', marca: 'Yamaha,Crypton', anio: 2019, kilometraje: 5000, color: 'Azul', precio: 250000 },
-     { modelo: '190cc', marca: 'Honda,Cb', anio: 2021, kilometraje: 0 , color: 'Negro', precio: 450000 },
+    { modelo: '190cc', marca: 'Honda,Cb', anio: 2021, kilometraje: 0 , color: 'Negro', precio: 450000 } ,
     { modelo: '1000cc', marca: 'Yamaha,R1', anio: 2019, kilometraje: 15000, color: 'Blanco', precio: 10800000 },
   ];
   
   function mostrarCatalogo() {
     let catalogo = 'Catálogo de motos:\n\n';
+
+// Uso de Map -> Mostrar modelos en mayúsculas 
+ const motoMarcaEnMayuscula = motos.map((moto) => {
+  moto.marca = moto.marca.toUpperCase();
+  return moto;
+ });
   
     for (let index = 0; index < motos.length; index++) {
       const moto = motos[index];
@@ -13,6 +19,7 @@
    }
   
     alert(catalogo);
+
    }
   
    function comprarMoto() {
@@ -58,4 +65,6 @@
   
   simuladorCompraMoto();
 
-
+// obtener elemento del DOM y capturar su evento click
+var btnIniciarSimulador = document.getElementById("btnIniciarSimulador");
+btnIniciarSimulador.addEventListener("click", simuladorCompraMoto);
